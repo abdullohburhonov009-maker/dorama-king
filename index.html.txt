@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorama King - Учебная группа 1 Сезон</title>
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #1f2833;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+        }
+        h1 {
+            color: #66fcf1;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #45f3ff;
+            font-size: 16px;
+        }
+        .player-box {
+            background-color: #000;
+            width: 100%;
+            height: 450px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #66fcf1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            border: none;
+        }
+        .series-title {
+            font-weight: bold;
+            color: #fff;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .series-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #1f2833;
+            color: #66fcf1;
+            border: 2px solid #66fcf1;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover, .btn.active {
+            background-color: #66fcf1;
+            color: #0b0c10;
+            box-shadow: 0 0 10px #66fcf1;
+        }
+        .instagram-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #c5c6c7;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .instagram-link strong {
+            color: #ff007f;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>?? DORAMA KING ??</h1>
+    <p>Смотреть дораму: <strong>Вундерфулы / Учебная группа</strong></p>
+
+    <div class="player-box">
+        <video id="videoPlayer" controls poster="https://via.placeholder.com/800x450/000000/66fcf1?text=Выберите+серию+для+просмотра">
+            <source id="videoSource" src="" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+
+    <div class="series-title" id="currentEpisodeName">Выберите серию ниже ??</div>
+
+    <div class="series-buttons">
+        <button class="btn" onclick="changeEpisode(1, 'Учебная_группа_1_сезон_-_1_серия.mp4')">1 Серия</button>
+        <button class="btn" onclick="changeEpisode(2, 'Учебная_группа_1_сезон_-_2_серия.mp4')">2 Серия</button>
+        <button class="btn" onclick="changeEpisode(3, 'Учебная_группа_1_сезон_-_3_серия.mp4')">3 Серия</button>
+        <button class="btn" onclick="changeEpisode(4, 'Учебная_группа_1_сезон_-_4_серия.mp4')">4 Серия</button>
+        <button class="btn" onclick="changeEpisode(5, 'Учебная_группа_1_сезон_-_5_серия.mp4')">5 Серия</button>
+        <button class="btn" onclick="changeEpisode(6, 'Учебная_группа_1_сезон_-_6_серия.mp4')">6 Серия</button>
+        <button class="btn" onclick="changeEpisode(7, 'Учебная_группа_1_сезон_-_7_серия.mp4')">7 Серия</button>
+        <button class="btn" onclick="changeEpisode(8, 'Учебная_группа_1_сезон_-_8_серия.mp4')">8 Серия</button>
+        <button class="btn" onclick="changeEpisode(9, 'Учебная_группа_1_сезон_-_9_серия.mp4')">9 Серия</button>
+        <button class="btn" onclick="changeEpisode(10, 'Учебная_группа_1_сезон_-_10_серия.mp4')">10 Серия</button>
+    </div>
+
+    <br>
+    <a href="https://www.instagram.com/dorama_king.ru" class="instagram-link" target="_blank">Наш Instagram: <strong>@dorama_king.ru</strong></a>
+</div>
+
+<script>
+    function changeEpisode(episodeNum, fileName) {
+        var player = document.getElementById('videoPlayer');
+        var source = document.getElementById('videoSource');
+        var title = document.getElementById('currentEpisodeName');
+        
+        title.innerText = "Сейчас играет: Учебная_группа_1_сезон_-_" + episodeNum + "_серия";
+        
+        source.src = fileName;
+        player.load();
+        player.play();
+
+        var buttons = document.getElementsByClassName('btn');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('active');
+        }
+        buttons[episodeNum - 1].classList.add('active');
+    }
+</script>
+
+</body>
+</html>
